@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "outDir": "dist",
+        "sourceMap": true,
+        "target": "esnext",
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "noImplicitAny": false,
+        "strict": false,
+        "skipLibCheck": true
+    },
+    "include": [
+        "./*.js",
+        "src/**/*.ts",
+        "src/custom.d.ts",
+        "test/**/*.ts",
+    ],
+    "ts-node": {
+        "files": true
+    }
+}

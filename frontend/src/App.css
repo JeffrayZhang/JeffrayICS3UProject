@@ -1,0 +1,133 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.ant-layout-header {
+  padding: 0% 1%;
+}
+
+.ant-btn-primary {
+  background-color: #3a3d71;
+}
+
+.ant-btn-primary:hover {
+  background-color: #3286bb;
+}
+
+@media screen and (min-width: 600px) {
+  .logo {
+    height: inherit;
+    position: relative;
+    padding-top: 8px;
+    padding-bottom: 5px;
+    height: "inherit";
+    left: "5px";
+  }
+  .logo::before {
+    content: url("logo-icon.svg");
+    transition: content 0.5s ease-in-out;
+    position: "absolute";
+  }
+  .logo:active {
+    content: url("logo-icon-hover.svg");
+    position: "absolute";
+    transition: content 0.5s ease-in-out;
+  }
+}
+@media (hover: hover) {
+  .logo:hover::before {
+    content: url("logo-icon-hover.svg");
+    position: "absolute";
+    transition: content 0.3s ease-in-out;
+    cursor: pointer;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #3a3d71;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #3286bb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.content-container {
+  display: flex;
+  min-height: calc(100vh - 134px);
+}
+
+@media only screen and (max-width: 756px) {
+  .content-container {
+    min-height: calc(100vh - 234px);
+  }
+}
+
+.menu-item {
+  padding: 10px 0px;
+  font-size: large;
+}
+
+h1 {
+  font-size: 52px;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
+
+h2 {
+  font-size: 28px;
+  margin-block-start: 0.3em;
+  margin-block-end: 0.3em;
+}
+
+p.description {
+  font-size: 24px;
+  font-weight: 300;
+  margin-block-start: 20px;
+  margin-block-end: 20px;
+}
+
+p.stats {
+  font-size: 24px;
+  font-weight: 300;
+  margin-block-start: 20px;
+  margin-block-end: 20px;
+}
+
+hr.solid {
+  border-top: 8px solid #aaaa;
+  border-radius: 20px;
+  margin: 10px 0px;
+}
+
+/* div.rounded-side {
+  background-color:#3a3d71;
+  padding:10px;
+  border-radius: 100em 0 0  100em;
+} */

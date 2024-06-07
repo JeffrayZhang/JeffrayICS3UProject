@@ -1,0 +1,62 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                    Int                   @id @default(autoincrement())
+  email                 String                @unique
+  name                  String?
+  firebase_uid          String                @unique
+  student_relationships StudentRelationship[]
+  reviews               Reviews[]
+  grade                 Int?
+  graduationYear        Int?
+  isIb                  Boolean?
+}
+
+model Course {
+  code                  String                @id // MATH-101
+  title                 String // Intro to Math
+  description           String?
+  prerequesites         String[]
+  is_ib_course          Boolean               @default(false)
+  student_relationships StudentRelationship[]
+  elective              Boolean
+  reviews               Reviews[]
+}
+
+// join table
+model StudentRelationship {
+  id          Int    @id @default(autoincrement())
+  course      Course @relation(fields: [course_code], references: [code])
+  course_code String
+  user        User   @relation(fields: [user_id], references: [id])
+  user_id     Int
+}
+
+model Reviews {
+  id          Int      @id @default(autoincrement())
+  course      Course   @relation(fields: [course_code], references: [code])
+  course_code String
+  user        User     @relation(fields: [user_id], references: [id])
+  user_id     Int
+  title       String?
+  content     String?
+  difficulty  Int
+  interesting Int
+  liked       Boolean
+  lastUpdated DateTime
+
+  @@unique([course_code, user_id])
+}
